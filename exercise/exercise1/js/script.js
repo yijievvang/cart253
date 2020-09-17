@@ -4,11 +4,11 @@ Pippin Barr
 
 Here is a description of this template p5 project.
 **************************************************/
-let background = {
- // r: 0,
- // g: 0,
- // b: 0,
- //
+let backgroundColor = {
+ r: 0,
+ g: 0,
+ b: 0,
+
 }
 // let circleSize = 200;
 // let circleX = 50
@@ -36,7 +36,7 @@ let circle2 = {
 function setup() {
   createCanvas(500, 500);
   background(196, 205, 255);
-+=
+// +=
 
 
 
@@ -50,7 +50,7 @@ function setup() {
 //
 // Description of draw() goes here.
 function draw() {
-circle.x += circle.speed;
+// circle.x += circle.speed;
 
 
 
