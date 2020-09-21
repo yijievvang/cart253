@@ -12,21 +12,15 @@ let  g = 94
 
 let circleSize = 100;
 let circleX = 1
-let circleY = 250
+let circleY = 100
 let circleSpeed = 2
 
 // property value. note: cannot have no values
-let circle1 = {
-  // x: 0,
-  // y: 250,
-  // size: 200,
-  // speed: 2
-
-}
-
-let circle2 = {
-
-}
+// let ellipse1 = {
+//   x: 0,
+//   y: 250,
+//   size: 200,
+//   speed: 2
 
 // setup()
 //noStroke noFill
@@ -42,6 +36,11 @@ function setup() {
 function draw() {
 
 background(r, g= 0, b);
+//
+// shooting star
+fill(255, 255, 255);
+circleX= circleX + 9
+circle(circleX, circleY, 10)
 
 
   // Head
@@ -59,16 +58,16 @@ background(r, g= 0, b);
   stroke(0, 0, 0)
   strokeWeight(3)
   fill(255, 255, 255);
-  // circleSize = circleSize -1;
+// circleSize = circleSize -1;
 circleX = circleX * 1
 constrainedMouseX = constrain(mouseX, 230, 260)
 constrainedMouseY = constrain(mouseY, 190, 210)
-    // ellipse(250, 210, 100, 100);
+// ellipse(250, 210, 100, 100);
 circle(constrainedMouseX, constrainedMouseY, circleSize);
 
-  // iris
+// iris
     fill(60, 194, 244);
-    // ellipse(250, 210, 50, 50)
+// ellipse(250, 210, 50, 50)
     constrainedMouseX = constrain(mouseX, 215, 275)
     constrainedMouseY = constrain(mouseY, 170, 230)
     circle(constrainedMouseX, constrainedMouseY, 50, 50)
@@ -82,19 +81,19 @@ ellipse(constrainedMouseX, constrainedMouseY, 20, 35)
     point(197,245);
     point(220,250);
     point(208,255);
-  // mouth
+// mouth
   stroke(0, 0, 0)
   strokeWeight(4)
   noFill();
   arc(250, 260, 160, 40, 0, PI);
-  // Teeth
+//
+// Teeth
   stroke(0, 0, 0)
   strokeWeight(3)
     fill(255, 255, 255);
     rectMode(250, 250)
     rect(210, 280, 30, 30);
     rect(260, 280, 30, 30);
-
 
 
 }
