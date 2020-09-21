@@ -41,7 +41,7 @@ function setup() {
 // Description of draw() goes here.
 function draw() {
 
-background(r, 0, b);
+background(r, g= 0, b);
 
 
   // Head
@@ -69,16 +69,13 @@ circle(constrainedMouseX, constrainedMouseY, circleSize);
   // iris
     fill(60, 194, 244);
     // ellipse(250, 210, 50, 50)
-    constrainedMouseX = constrain(mouseX, 205, 285)
-    constrainedMouseY = constrain(mouseY, 165, 240)
+    constrainedMouseX = constrain(mouseX, 215, 275)
+    constrainedMouseY = constrain(mouseY, 170, 230)
     circle(constrainedMouseX, constrainedMouseY, 50, 50)
 
   fill(0, 0, 0);
-    //ellipse(250, 210, 20, 35)
-    constrainedMouseX = constrain(mouseX, 205, 285)
-    constrainedMouseY = constrain(mouseY, 165, 240)
 ellipse(constrainedMouseX, constrainedMouseY, 20, 35)
-  
+
     stroke(255, 0, 0)
     fill(255, 244, 99);
     arc(205, 260, 50, 50, 3, 7, PI + QUARTER_PI, CHORD);
@@ -89,16 +86,7 @@ ellipse(constrainedMouseX, constrainedMouseY, 20, 35)
   stroke(0, 0, 0)
   strokeWeight(4)
   noFill();
-  beginShape();
-    curveVertex(170, 255);
-
-  curveVertex(207, 275);
-    curveVertex(180, 260);
-    curveVertex(222, 276);
-    curveVertex(290, 276);
-
-    curveVertex(350, 250);
-    endShape();
+  arc(250, 260, 160, 40, 0, PI);
   // Teeth
   stroke(0, 0, 0)
   strokeWeight(3)
@@ -107,12 +95,10 @@ ellipse(constrainedMouseX, constrainedMouseY, 20, 35)
     rect(210, 280, 30, 30);
     rect(260, 280, 30, 30);
 
-// text REMEMBER CSS LATER
-// textSize(50)
-// text('spoooooonge', 100, 200)
 
 
 }
 function mousePressed() {
+  function draw() { circle(circle)}
   console.log(mouseX,mouseY);
 }
