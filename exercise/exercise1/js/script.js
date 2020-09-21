@@ -10,7 +10,7 @@ let  b = 100
 let  g = 94
 
 
-let circleSize = 500;
+let circleSize = 100;
 let circleX = 1
 let circleY = 250
 let circleSpeed = 2
@@ -43,11 +43,12 @@ function draw() {
 
 background(r, 0, b);
 
+
   // Head
   stroke(74, 74, 68)
   strokeWeight(5)
   fill(255, 244, 99);
-  ellipse(250, 220, 270, 250);
+  ellipse(250, 250, 270, 300);
 
 
 
@@ -58,24 +59,26 @@ background(r, 0, b);
   stroke(0, 0, 0)
   strokeWeight(3)
   fill(255, 255, 255);
-  circleSize = circleSize -1;
+  // circleSize = circleSize -1;
 circleX = circleX * 1
-
+constrainedMouseX = constrain(mouseX, 230, 260)
+constrainedMouseY = constrain(mouseY, 190, 210)
     // ellipse(250, 210, 100, 100);
-// circle(circleX, circleY, circleSize);
+circle(constrainedMouseX, constrainedMouseY, circleSize);
 
   // iris
     fill(60, 194, 244);
     // ellipse(250, 210, 50, 50)
-    ellipse(mouseX, mouseY, 50, 50)
+    constrainedMouseX = constrain(mouseX, 205, 285)
+    constrainedMouseY = constrain(mouseY, 165, 240)
+    circle(constrainedMouseX, constrainedMouseY, 50, 50)
 
   fill(0, 0, 0);
     //ellipse(250, 210, 20, 35)
-ellipse(mouseX, mouseY, 20, 35)
-  // lashes
-  rect(245,140, 10, 20)
-
-    //cheeks
+    constrainedMouseX = constrain(mouseX, 205, 285)
+    constrainedMouseY = constrain(mouseY, 165, 240)
+ellipse(constrainedMouseX, constrainedMouseY, 20, 35)
+  
     stroke(255, 0, 0)
     fill(255, 244, 99);
     arc(205, 260, 50, 50, 3, 7, PI + QUARTER_PI, CHORD);
