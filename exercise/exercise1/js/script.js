@@ -4,16 +4,16 @@ Pippin Barr
 
 Here is a description of this template p5 project.
 **************************************************/
-let backgroundColor = {
- r: 0,
- g: 0,
- b: 0,
+let backgroundColor = 0;
+let  r = 41
+let  b = 100
+let  g = 94
 
-}
-// let circleSize = 200;
-// let circleX = 50
-// let circleY = 50
-// let circleSpeed = 2
+
+let circleSize = 500;
+let circleX = 1
+let circleY = 250
+let circleSpeed = 2
 
 // property value. note: cannot have no values
 let circle1 = {
@@ -26,7 +26,6 @@ let circle1 = {
 
 let circle2 = {
 
-
 }
 
 // setup()
@@ -35,41 +34,36 @@ let circle2 = {
 
 function setup() {
   createCanvas(500, 500);
-  background(196, 205, 255);
-// +=
-
-
-
-
-
-
-
 }
 
 // draw()
 //
 // Description of draw() goes here.
 function draw() {
-// circle.x += circle.speed;
 
-
+background(r, 0, b);
 
   // Head
   stroke(74, 74, 68)
   strokeWeight(5)
   fill(255, 244, 99);
   ellipse(250, 220, 270, 250);
-    ellipse(250, 250, 250, 300);
+
 
 
 // holes
 
   // Eyeball
+
   stroke(0, 0, 0)
   strokeWeight(3)
   fill(255, 255, 255);
+  circleSize = circleSize -1;
+circleX = circleX * 1
+
     // ellipse(250, 210, 100, 100);
-ellipse(mouseX, mouseY, 100, 100);
+// circle(circleX, circleY, circleSize);
+
   // iris
     fill(60, 194, 244);
     // ellipse(250, 210, 50, 50)
@@ -114,8 +108,6 @@ ellipse(mouseX, mouseY, 20, 35)
 // textSize(50)
 // text('spoooooonge', 100, 200)
 
-
-line(250, 0, 250, 500);
 
 }
 function mousePressed() {
