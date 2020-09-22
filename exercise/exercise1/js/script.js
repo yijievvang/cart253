@@ -12,7 +12,7 @@ let  g = 94
 
 let circleSize = 100;
 let circleX = 1
-let circleY = 100
+let circleY = 300
 let circleSpeed = 2
 
 // property value. note: cannot have no values
@@ -27,7 +27,7 @@ let circleSpeed = 2
 // Description of setup() goes here.function
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(500+200, 500);
 }
 
 // draw()
@@ -35,19 +35,20 @@ function setup() {
 // Description of draw() goes here.
 function draw() {
 
-background(r, g= 0, b);
+background(41, 0, 60);
 //
 // shooting star
 fill(255, 255, 255);
-circleX= circleX + 9
-circle(circleX, circleY, 10)
-
-
-  // Head
+circleX= circleX + 5
+circle(circleX, circleY, 15)
+circleY= circleY -2
+//
+// Head
   stroke(74, 74, 68)
   strokeWeight(5)
   fill(255, 244, 99);
   ellipse(250, 250, 270, 300);
+
 
 
 
@@ -58,8 +59,6 @@ circle(circleX, circleY, 10)
   stroke(0, 0, 0)
   strokeWeight(3)
   fill(255, 255, 255);
-// circleSize = circleSize -1;
-circleX = circleX * 1
 constrainedMouseX = constrain(mouseX, 230, 260)
 constrainedMouseY = constrain(mouseY, 190, 210)
 // ellipse(250, 210, 100, 100);
@@ -74,9 +73,11 @@ circle(constrainedMouseX, constrainedMouseY, circleSize);
 
   fill(0, 0, 0);
 ellipse(constrainedMouseX, constrainedMouseY, 20, 35)
-
+//
+// cheeks
     stroke(255, 0, 0)
-    fill(255, 244, 99);
+    b = map(mouseX, 50, 250, 385, 100, 250)
+    fill(255, b, 99);
     arc(205, 260, 50, 50, 3, 7, PI + QUARTER_PI, CHORD);
     point(197,245);
     point(220,250);
