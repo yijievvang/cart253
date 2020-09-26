@@ -78,20 +78,11 @@ function draw() {
   // cheeks
   stroke(255, 0, 0)
   fill(255, 244, 99);
-// sorry this is a big mass
-  if (mouseX > 3 * width / 10 && mouseX < 7 * width / 10 && mouseY > 3 * width / 8 && mouseY < 6 * width / 8) {
+  // sorry this is a big mass
+  if (mouseX > 3 * width / 10 && mouseX < 7 * width / 10 && mouseY > width / 4 && mouseY < 3 * width / 4) {
     // "||" means either, or, and !() means not true
-    fill(80, 244, 99);
-
-  } else if (mouseX > width / 3 && mouseX < 2 * width / 3 && mouseY > width / 3 && mouseY < 3 * width / 4) {
-
-      fill(140, 244, 99);
-
-} else if (mouseX > width / 5) {
-    if (mouseX < 4 * width / 5) {
-      // b = map(mouseX, 50, 250, 385, 100, 250);
-      fill(255, 244, 99);
-    }
+    fill(255, 140, 99);
+    // b = map(mouseX, 50, 250, 385, 100, 250);
   } else {
     fill(255, 244, 99);
   }
