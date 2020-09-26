@@ -1,8 +1,5 @@
 let nose;
 
-function preload() {
- nose = loadImage('assets\images\nose.png');
-}
 let covid19 = {
   x: 0,
   y: 200,
@@ -30,12 +27,14 @@ let rectScale = {
 
 let angle = 0;
 
-
+function preload() {
+ nose = loadImage('assets/images/nose.gif');
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noCursor();
-  image(img, 0, 0);
+
   covid19.x = random(1, width);
   covid19.y = random(1, height);
   covid19.vx += covid19.speed;
@@ -87,7 +86,7 @@ function draw() {
   // this is the user's mouse identified as a circle object, which will be replace by an image
   push()
   fill(user.fill);
-  image(nose, user.x - 50, user.y, user.size);
+  image(nose, user.x - 50, user.y, 300, 200);
   pop()
 
   let d = dist(user.x, user.y, covid19.x, covid19.y);
