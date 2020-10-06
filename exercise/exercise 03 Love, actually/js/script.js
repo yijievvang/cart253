@@ -14,7 +14,7 @@ let circle2 = {
   speed: 3,
   size: 100,
 };
-let state = `simulation`; // can be title, simulation,love,sadness
+let state = `title`; // can be title, simulation,love,sadness
 
 
 
@@ -40,24 +40,25 @@ function draw() {
     title();
   }
   else if (state === `simulation`){
-      simulation();
+    simulation();
   }
   else if (state === `love`){
     love();
   }
   else if (state === `sadness`){
-
+    sadness();
   }
 
 }
 function title() {
   push();
   textSize(64);
-  fill(255, 0, 0);
-  textAlign(CENTRE, CENTRE);
-  text(`love`, width/2, height);
+  fill(255, 255, 255);
+  textAlign(CENTER, CENTER);
+  text(`love??????`, width/2, height/2);
   pop();
 }
+
 function simulation() {
    move();
    checkoffscreen();
@@ -65,6 +66,22 @@ function simulation() {
    displaycircles();
  }
 
+ function love() {
+   push();
+   textSize(64);
+   fill(255, 0, 0);
+   textAlign(CENTER, CENTER);
+   text(`༼♥ل͜♥༽`, width/2, height/2);
+   pop();
+}
+   function sadness() {
+     push();
+     textSize(64);
+     fill(0, 0, 255);
+     textAlign(CENTER, CENTER);
+     text(`（；´д｀）ゞ `, width/2, height/2);
+     pop();
+}
 function move() {
 // move the circle
   circle1.x = circle1.x + circle1.vx;
@@ -77,12 +94,14 @@ function checkoffscreen(){
   // check if the circle has gone offscreen
   if (circle1.x < 0 || circle1.x > width || circle1.y < 0 || circle1.y> width || circle2.x < 0 || circle2.x > height || circle2.y < 0 || circle2.y> height){
     // sad ending
+    state = `sadness`;
   }
 }
 function checkoverlap(){
   // check if the circles overlap
     let d = dist(circle1.x, circle1.y, circle2.x, circle2.y);
     if (d < circle1.size/2 + circle2.size/2){
+      state = `love`;
       // happy ending
     }
   // check if the circle has gone offscreen
@@ -97,5 +116,8 @@ function displaycircles() {
 }
 
 function mousePressed(){
+ if (state === `title`){
+     state = `simulation`;
+ }
 
 }
