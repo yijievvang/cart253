@@ -3,7 +3,7 @@ let circle1 = {
   y: 250,
   vx: 0,
   vy: 0,
-  speed: 3,
+  speed: 2,
   size: 100,
 };
 let circle2 = {
@@ -11,11 +11,10 @@ let circle2 = {
   y: 250,
   vx: 0,
   vy: 0,
-  speed: 3,
+  speed: 2,
   size: 100,
 };
 let state = `title`; // can be title, simulation,love,sadness
-
 
 
 function setup() {
@@ -52,10 +51,12 @@ function draw() {
 }
 function title() {
   push();
-  textSize(64);
+  textSize(60);
   fill(255, 255, 255);
   textAlign(CENTER, CENTER);
-  text(`love??????`, width/2, height/2);
+  text(`love? `, width/2, height/2);
+  textSize(20);
+  text(`drag the circle before it went out of the frame`, width/2, 2 * height/3);
   pop();
 }
 
@@ -66,7 +67,7 @@ function simulation() {
    displaycircles();
  }
 
- function love() {
+function love() {
    push();
    textSize(64);
    fill(255, 0, 0);
@@ -74,13 +75,19 @@ function simulation() {
    text(`༼♥ل͜♥༽`, width/2, height/2);
    pop();
 }
-   function sadness() {
+function sadness() {
      push();
      textSize(64);
      fill(0, 0, 255);
      textAlign(CENTER, CENTER);
      text(`（；´д｀）ゞ `, width/2, height/2);
+     textSize(20);
+     text(`refresh the page`, width/2, height/3);
      pop();
+}
+function ending(){
+
+  fill(100, 100, 100);
 }
 function move() {
 // move the circle
@@ -89,12 +96,13 @@ function move() {
 
   circle2.x = circle2.x + circle2.vx;
   circle2.y = circle2.y + circle2.vy;
+
 }
 function checkoffscreen(){
   // check if the circle has gone offscreen
   if (circle1.x < 0 || circle1.x > width || circle1.y < 0 || circle1.y> width || circle2.x < 0 || circle2.x > height || circle2.y < 0 || circle2.y> height){
-    // sad ending
     state = `sadness`;
+    // sad ending
   }
 }
 function checkoverlap(){
@@ -104,11 +112,8 @@ function checkoverlap(){
       state = `love`;
       // happy ending
     }
-  // check if the circle has gone offscreen
-  if (circle1.x < 0 || circle1.x > width || circle1.y < 0 || circle1.y> width || circle2.x < 0 || circle2.x > height || circle2.y < 0 || circle2.y> height){
-    // sad ending
   }
-}
+
 function displaycircles() {
   // display the circles
   ellipse(circle1.x, circle1.y, circle1.size);
@@ -116,8 +121,15 @@ function displaycircles() {
 }
 
 function mousePressed(){
- if (state === `title`){
-     state = `simulation`;
- }
 
+ if (state === `title`){
+     state = `simulation`
+ }
+if (state === `love`){
+     state = `ending`
+   }
+}
+function mouseDragged(){
+  circle1.x = mouseX;
+  circle1.y = mouseY;
 }
