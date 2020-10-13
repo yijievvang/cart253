@@ -42,7 +42,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  // background(0);
 
   // display other things in air. the let variables are only needed once so they are written here.
   for (let i = 0; i < 10; i++) {

@@ -1,9 +1,3 @@
-/**************************************************
-Template p5 project
-Pippin Barr
-
-Here is a description of this template p5 project.
-**************************************************/
 let backgroundColor = 0;
 let r = 41;
 let b = 100;
@@ -32,29 +26,22 @@ let circleSpeed = 2;
 function setup() {
   createCanvas(500, 500);
 }
-//
-// draw()
-//
-// Description of draw() goes here.
+
 function draw() {
   background(41, 0, 60);
   //
   // shooting star
   fill(247, 241, 188);
-  starX.xposition = starX.xposition + starX.speed;
+  starX.xposition += starX.speed;
 
-  if (starX.xposition > width) {
+  if (starX.xposition > width || starX.xposition < 0) {
     starX.speed = -starX.speed
-  }
-
-  if (starX.xposition < 0) {
-    starX.speed = -starX.speed
-  }
+}
   circle(starX.xposition, starX.yposition, starX.size)
   //
   // Head
-  stroke(74, 74, 68)
-  strokeWeight(5)
+  stroke(74, 74, 68);
+  strokeWeight(5);
   fill(255, 244, 99);
   ellipse(250, 250, 270, 300);
   //
