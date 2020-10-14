@@ -1,33 +1,33 @@
 let r = 0;
 let g = 0;
 let b = 0;
+//background color
 let bc = {
   red: 200,
   green: 0,
   blue: 0,
 };
+//for earth object
 let sphere1 = {
   x: 500,
   y: 0,
   z: 0,
   r: 100,
-  vx: 0,
-  vy: 0,
   speed: 1,
 };
+//meteorite which the player controls
 let meteorite = {
   x: 0,
   y: 0,
   z: 0,
   r: 80,
-  vx: 0,
-  vy: 0,
-  vz: 0,
   speed: 5,
+  // change the shape. not yet called below for this project
   detailX: 0,
   detailY: 0,
   userSpeed: 5,
 };
+//saturn object
 let st = {
   x: 0,
   y: 0,
@@ -35,12 +35,10 @@ let st = {
   r: 0,
 };
 let titleString = "La Planète Bleue";
-let nextTitleString =
-  "avoid collision by pressing up/down arrow.press any key to start";
-
+let nextTitleString ="avoid collision by pressing up/down arrow.";
+//font used for the texts displayed at the b beginning
 let beginFont;
 
-let button;
 
 function preload() {
   earthImage = loadImage("assets/images/earth.png");
@@ -69,8 +67,10 @@ function setup() {
 }
 
 function draw() {
+  //update the color  of the background according to the x position of the meteorite controled by the user
   updatebc();
   background(bc.red, bc.green, bc.blue);
+  // drag around with mouse to change perspective
   orbitControl();
 
   if (state === `openPhrase`) {
@@ -79,7 +79,6 @@ function draw() {
     secondPhrase();
   } else if (state === `drawEarth&Meteorite`) {
     earth();
-
     saturn();
     moveMeteorite();
     drawMeteorite();
@@ -90,6 +89,7 @@ function draw() {
     happyEnding();
     earth();
   }
+  // player avoid collision by pressing up and down arrow key
   if (keyIsDown(UP_ARROW)) {
     meteorite.y -= meteorite.userSpeed;
   }
@@ -115,11 +115,11 @@ function secondPhrase() {
   fill(r, g, b);
   textAlign(CENTER);
   textFont(beginFont, 80);
-  textSize(80);
+  textSize(20);
   text(nextTitleString, 0, 0);
   pop();
 }
-
+// meteorites successful passed across the earth and as a result did not cause collision
 function happyEnding() {
   texture(happyEndingImage);
   plane(happyEndingImage.width, happyEndingImage.height);
@@ -135,7 +135,6 @@ function earth() {
   fill(255, 102, 0);
   texture(earthImage);
   sphere(sphere1.r);
-  // updatebc();
   pop();
 }
 
@@ -189,7 +188,7 @@ function checkOverlap() {
     state = `happyEnding`;
   }
 }
-
+// player collide with the earth result in explosion
 function desaster() {
   image(explosionImage, 0 - (2 * width) / 5, 0 - height / 2, 1500, 1000);
 }
