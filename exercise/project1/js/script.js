@@ -27,7 +27,7 @@ let meteorite = {
   speed: 5,
   detailX: 0,
   detailY: 0,
-  userSpeed:4,
+  userSpeed:5,
 };
 let st={
   x:500,
@@ -37,7 +37,7 @@ let st={
 }
 let titleString = "La Planète Bleue";
 let nextTitleString = "press any key to start";
-let happyEndingString = "Reverse";
+let happyEndingString = "love the planet";
 
 let beginFont;
 
@@ -118,14 +118,19 @@ function secondPhrase() {
   text(nextTitleString, 0, 0);
   pop();
 }
+function happyEnding(){
+
+  happyEndingPhrase();
+
+}
 function happyEndingPhrase(){
   push();
-  translate(0, 0, 300);
+  // translate(0, 0, 300);
   fill(0);
-
+  textAlign(CENTER);
   textFont(beginFont, 100);
   textSize(80);
-  text(happyEndingString, 0, 0);
+  text(happyEndingString, 0, 0,300);
   pop();
 }
 function earth() {
@@ -180,14 +185,7 @@ function checkOverlap() {
   state = `happyEnding`;
 }
 }
-function checkoverlap2(){
 
-}
-function happyEnding(){
-
-  happyEndingPhrase();
-
-}
 function desaster() {
   image(explosionImage,0-2*width/5,0-height/2, 1500,1000);
 }
